@@ -9,7 +9,8 @@ export default class Component extends React.Component {
 
   onSubmit(e) {
     e.preventDefault()
-    console.log(this.refs.title.value)
+    // console.log(this.refs.title.value)
+    this.props.addCard({'title': this.refs.title.value})
   }
 
   render() {

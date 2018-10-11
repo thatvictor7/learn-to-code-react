@@ -6,11 +6,24 @@ import AddCardForm from './components/AddCardForm'
 
 export default class App extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      cards: CardData
+    }
+  }
+
+  addCard = (card) => {
+    console.log('addcard', card);
+    this.setState({
+      cards: this.state.cards.concat(card)
+    })
+  }
   render() {
     return (
      <main>
-        <CardList title="To Do" cards={CardData} />
-        <AddCardForm />
+        <CardList title="To Do" cards={this.state.cards} />
+        <AddCardForm addCard={this.addCard} />
      </main>
     )
   }
